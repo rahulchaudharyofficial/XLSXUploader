@@ -1,0 +1,13 @@
+<aura:component controller="XLSXUploaderController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="filetype" type="List" default="['.xlsx']" />
+    <aura:attribute name="multiple" type="Boolean" default="false" />
+    <aura:attribute name="disabled" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" />
+
+    <lightning:fileUpload label="Upload Report"
+        name="fileUploader"
+        multiple="{!v.multiple}"
+        accept="{!v.filetype}"
+        recordId="{!v.recordId}"
+        onuploadfinished="{!c.handleUploadFinished}" />
+</aura:component>
