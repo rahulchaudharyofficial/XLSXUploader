@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="myText" type="String" default="I solemnly swear I know JavaScript"></aura:attribute>
+    <aura:attribute name="myNewText" type="String" default="I am proficient in JavaScript"></aura:attribute>
+    <ui:outputText value="{!v.myText}"></ui:outputText>
+    <br/>
+    <lightning:button variant="brand-outline" label="Preview" onclick="{!c.preview}"></lightning:button>
+</aura:component>

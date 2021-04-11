@@ -1,0 +1,15 @@
+<template>
+    <template if:true={contacts}>
+        <template for:each={contacts} for:item="contact">
+            <!-- <a style="display: none;" key={contact.Id} href="#">
+                <c-contact-tile contact={contact}></c-contact-tile>
+            </a> -->
+            {contact.Name}
+        </template>
+    </template>
+    <template if:false={contactList}>
+        <p>
+            No Contact Available
+        </p>
+    </template>
+</template>

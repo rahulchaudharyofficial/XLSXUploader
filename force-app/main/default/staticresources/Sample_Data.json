@@ -1,0 +1,35 @@
+{
+    "fact": {
+        "baseFact": {
+            "Consumer_App__c":"LM",
+            "Salesforce_Entity_Name__c":"Account",
+            "Salesforce_Entity_Id__c":"0012w0000049Z7K",
+            "Payload__c": {
+                "OldValues": {
+                    "Id": null
+                },
+                "NewValues": {
+                    "Id": "0062w0000032OSU"
+                }
+            }
+        }
+    },
+    "action": [
+        {
+            "actionName": "CreateTask",
+            "actionHandler": "TaskHandler",
+            "actionSequence": 1,
+            "actionParams": {
+                "WhatId": "$.fact.baseFact.Payload__c.NewValues.Id"
+            }
+        },
+        {
+            "actionName": "CreateTask",
+            "actionHandler": "TaskHandler",
+            "actionSequence": 2,
+            "actionParams": {
+                "WhatId": "$.fact.baseFact.Salesforce_Entity_Id__c"
+            }
+        }
+    ]
+}

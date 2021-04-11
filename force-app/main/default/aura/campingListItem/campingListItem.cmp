@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="item" access="public" type="Camping_Item__c" required="true" default="null"></aura:attribute>
+    <div class="slds-p-around_small slds-box slds-theme_info">
+        <article>
+            <h4>
+                <ui:outputText value="{!v.item.Name}" />
+            </h4>
+            <p>
+                <lightning:formattedNumber value="{!v.item.Price__c}" style="currency"></lightning:formattedNumber>
+                <lightning:formattedNumber value="{!v.item.Quantity__c}"></lightning:formattedNumber>
+                <lightning:input type="toggle" checked="{!v.item.Packed__c}"></lightning:input>
+            </p>
+            <p>
+                <lightning:button label="Packed!" onclick="{!c.packItem}"/>
+            </p>
+        </article>
+    </div>
+</aura:component>

@@ -1,0 +1,40 @@
+<apex:page standardController="Opportunity" recordSetVar="contacts">
+    <apex:form >
+        <apex:pageBlock title="Opportunity" id="contact_list">
+            Filter : 
+            <apex:selectList value="{!filterId}" size="1">
+                <apex:selectOptions value="{!listViewOptions}"/>
+                <apex:actionSupport event="onchange" reRender="contact_list"/>
+            </apex:selectList>
+
+            <apex:pageBlockTable value="{!contacts}" var="c">
+                <apex:column value="{!c.Name}"/>
+                <apex:column value="{!c.Account.Name}"/>
+                <apex:column value="{!c.Amount}"/>
+                <apex:column value="{!c.CloseDate}"/>
+            </apex:pageBlockTable>
+            <table style="width:100%;">
+                <tr>
+                    <td>
+                        <apex:outputText value="{!PageNumber} of {!CEILING(ResultSize/PageSize)}"/>
+                    </td>
+                    <td align="center">
+                        <apex:commandLink action="{!Previous}" rendered="{!HasPrevious}" value="<<Previous"/>
+                        <apex:outputText value="<<Previous" style="color:darkkhaki" rendered="{!NOT(HasPrevious)}"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:commandLink action="{!Next}" rendered="{!HasNext}" value="Next>>"/>
+                        <apex:outputText value="Next>>" style="color:darkkhaki" rendered="{!NOT(HasNext)}"/>
+                    </td>
+                    <td align="right">
+                        Records Per Page:
+                        <apex:selectList size="1" value="{!PageSize}">
+                            <apex:selectOption itemLabel="5" itemValue="5"/>
+                            <apex:selectOption itemLabel="10" itemValue="10"/>
+                            <apex:actionSupport event="onchange" reRender="contact_list"/>
+                        </apex:selectList>
+                    </td>
+                </tr>
+            </table>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

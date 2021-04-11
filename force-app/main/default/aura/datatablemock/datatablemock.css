@@ -1,0 +1,14 @@
+.THIS .Active {
+   background-color: green;    
+}
+.THIS .InActive {
+   background-color: red;    
+}
+
+.THIS tr:nth-child(even) {
+   background: blue;
+}
+
+.THIS .COLORFUL {
+   background-color: coral;
+}

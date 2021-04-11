@@ -1,0 +1,52 @@
+<apex:page controller="ConsolidatedReportsController">
+    <apex:form >
+        <apex:inputHidden value="{!selectedTemplate}" id="RadioButtonValue" />
+        <apex:pageBlock title="Consolidated Report Template Selector">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select" action="{!submit}"/>
+                <apex:commandButton value="Close" action="{!close}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!RecordTemplatesBySObjectType}" var="template">
+
+                    <apex:column >
+                        <input name="chosen" type="radio" id="{!template.templateId}" value="{!template.templateId}" onclick="javascript: changeValue(this, '{!$Component.RadioButtonValue}');"
+                        />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">TemplateId</apex:facet>
+                        <apex:outputText value="{!template.templateId}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Title</apex:facet>
+                        <apex:outputText value="{!template.title}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Name</apex:facet>
+                        <apex:outputText value="{!template.name}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Enabled</apex:facet>
+                        <apex:outputText value="{!template.enabled}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Landscape</apex:facet>
+                        <apex:outputText value="{!template.landscape}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">eSignature</apex:facet>
+                        <apex:outputText value="{!template.esignature}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Description</apex:facet>
+                        <apex:outputText value="{!template.description}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Created By</apex:facet>
+                        <apex:outputText value="{!template.createdBy}" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

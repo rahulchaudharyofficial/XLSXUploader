@@ -1,0 +1,18 @@
+<template>
+  <lightning-progress-indicator
+    current-step={currentStep}
+    type={progressType}
+    has-error={hasError}
+    variant={variant}
+  >
+    <template if:true={hasSteps}>
+      <template for:each={progressSteps} for:item="pStep">
+        <lightning-progress-step
+          key={pStep.value}
+          label={pStep.label}
+          value={pStep.value}
+        ></lightning-progress-step>
+      </template>
+    </template>
+  </lightning-progress-indicator>
+</template>

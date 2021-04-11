@@ -1,0 +1,10 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock title="Image">
+            <apex:pageBlockSection >
+                <apex:image url="https://developer.salesforce.com/files/salesforce-developer-network-logo.png" alt="Excercise">
+                </apex:image>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <template if:true={error}>
+            {error}
+        </template>
+        <div class="slds-col slds-size_4-of-4">
+            <div>
+                <input id="searchsobjecttype" name="searchsobjecttype" class="slds-input" type="text" list="availablesobjecttypes"/>
+                <datalist id="availablesobjecttypes">
+                    <template for:each={sobjTypes} for:item="item">
+                        <option key={item.name} value={item.name}>{item.label}</option>
+                    </template>                              
+                </datalist>
+            </div>
+        </div>
+    </div>    
+</template>

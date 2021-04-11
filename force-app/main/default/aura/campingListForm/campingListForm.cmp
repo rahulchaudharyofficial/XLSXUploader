@@ -1,0 +1,48 @@
+<aura:component>
+  <aura:attribute name="newItem" type="Camping_Item__c" required="true" default="{
+    'sObjectType':'Camping_Item__c',
+    'Quantity__c': 0,
+    'Price__c' : 0,
+    'Packed__c': false
+}"></aura:attribute>
+ <!-- CREATE NEW EXPENSE -->
+ <aura:registerEvent name="addItem" type="c:addItemEvent"></aura:registerEvent>
+ <div aria-labelledby="newexpenseform" class="slds-p-around_small">
+    <!-- BOXED AREA -->
+    <fieldset class="slds-box slds-theme--default slds-container--small">
+    <legend id="newexpenseform" class="slds-text-heading--small 
+      slds-p-vertical--medium">
+      Add Camping Item
+    </legend>
+
+    <!-- CREATE NEW EXPENSE FORM -->
+    <form class="slds-form--stacked">          
+        <lightning:input aura:id="expenseform" label="Name"
+                         name="Name"
+                         value="{!v.newItem.Name}"
+                         required="true"/> 
+        <lightning:input type="number" aura:id="expenseform" label="Quantity"
+                         name="Quantity"
+                         value="{!v.newItem.Quantity__c}"
+                         min="1"/>
+
+        <lightning:input aura:id="expenseform" label="Price"
+                         name="Price"
+                         value="{!v.newItem.Price__c}"
+                         formatter="currency"/>
+
+        <lightning:input type="checkbox" aura:id="expenseform" label="Packed"
+                         name="Packed"
+                         checked="{!v.newItem.Packed__c}"/>
+
+        <lightning:button label="Create Camping Item" 
+                          class="slds-m-top--medium"
+                          variant="brand"
+                          onclick="{!c.clickCreateItem}"/>
+    </form>
+    <!-- / CREATE NEW EXPENSE FORM -->
+
+  </fieldset>
+  <!-- / BOXED AREA -->
+</div>
+</aura:component>

@@ -1,0 +1,23 @@
+<aura:component controller="PocRecordController" implements="force:hasRecordId,flexipage:availableForAllPageTypes,force:appHostable,force:hasSObjectName,flexipage:availableForRecordHome">
+
+    <aura:attribute name="responseDTO" type="ResponseDTO" description="response data received from controller" access="private" />
+    <!--
+    <aura:attribute name="hasRecords" type="boolean" default="false" access="private"/>
+    <aura:attribute name="isError" type="boolean" access="private" default="false"/>
+    <aura:attribute name="errors" type="String[]" access="private"/>
+    -->
+    <aura:handler name="init" value="{!this}" action="{!c.initHandler}"/>
+    
+    <!--
+    <aura:if isTrue="{!v.isError}">
+        {!v.errors}
+        <aura:set attribute="else"> -->
+            <lightning:datatable
+                keyField="id"
+                data="{! v.responseDTO.resDTO }"
+                columns="{! v.responseDTO.columns }"
+                hideCheckboxColumn="false"
+                onrowaction="{!c.handleRowAction}" />
+        <!-- </aura:set>
+    </aura:if> -->
+</aura:component>
